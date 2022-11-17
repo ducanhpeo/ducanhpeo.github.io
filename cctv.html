@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+   <style>
+    body{
+        background-color: black;
+        color: white;
+        font-size: 200px;
+        margin-left: 400px;
+        padding-top: 300px
+    }
+   </style>
+</head>
+<body>
+    <!-- <button onclick="x = setTimeout(show, 2000)">settimeout</button>
+    <button onclick="clearTimeout(x)">clearTimeout</button>
+    <br><br>
+    <button onclick="y= setInterval(tess,3000)">setinterval</button>
+    <button onclick="clearInterval(y)">clearinterval</button>
+
+    <script>
+        function show(){
+           alert('jj')
+        }
+        function tess(){
+            alert('555')
+        }
+    </script> -->
+    <div id="time" onload="showtime()"></div>
+
+    <script>
+        function showtime(){
+            var date = new Date();
+            var gio= date.getHours();
+            var phut = date.getMinutes();
+            var giay= date.getSeconds();
+            var tg="AM";
+            if(gio==0){
+                gio=12
+            }
+            if(gio>12){
+                gio=gio-12;
+                tg="PM";
+            }
+            gio=(gio<10)? "0"+gio:gio;
+            phut=(phut<10)? "0"+phut:phut;            
+            giay=(giay<10)? "0"+giay:giay;
+            thoigian= gio+":"+phut+":"+giay+tg;
+            document.getElementById('time').innerHTML=thoigian;
+            setTimeout(showtime, 1000);
+        }
+        showtime();
+    </script>
+</body>
+</html>
+
+
